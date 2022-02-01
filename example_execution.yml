@@ -10,9 +10,22 @@
       debug: 
         msg: "This is my second task" 
     
+    - name: Task 4 execution 
+      debug: 
+        msg: "This is my fourth task" 
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Task 1 execution 
+      debug: 
+        msg: "This is my first task" 
+
+    - name: Task 2 execution 
+      debug: 
+        msg: "This is my second task" 
+    
     - fail: 
        msg: "Sad" 
 
     - name: Task 4 execution 
       debug: 
-        msg: "This is my fourth task" 

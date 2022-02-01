@@ -33,7 +33,7 @@ class CallbackModule(CallbackBase):
 
     def v2_playbook_on_play_start(self, play):
         self._play = play
-        self.total_tasks = len(self._play.get_tasks()[0])
+        self.total_tasks += len(self._play.get_tasks()[0])
 
     def v2_playbook_on_task_start(self, task, **kwargs):
         """Run when a task starts."""
