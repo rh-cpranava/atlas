@@ -30,7 +30,6 @@ Following is a sample playbook to be tested:
     - name: Task 4 execution
       debug:
         msg: "This is my fourth task"
-end
 ```
 
 On running the playbook, Atlas shows the code coverage:
@@ -59,5 +58,4 @@ localhost                  : ok=2    changed=0    unreachable=0    failed=1    s
 
 *** Atlas Results ***
 Coverage  : 75% (3 of 4 tasks are tested)
-end
 ```
