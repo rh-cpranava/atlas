@@ -35,8 +35,6 @@ Following is a sample playbook to be tested:
 On running the playbook, Atlas shows the code coverage:
 
 ```bash
-[WARNING]: Skipping plugin (/home/cpranava/atlast/callback_plugins/_init_.py) as it seems to be invalid: module 'ansible.plugins.callback._init_'
-has no attribute 'CallbackModule'
 
 PLAY [localhost] *********************************************************************************************************************************
 
