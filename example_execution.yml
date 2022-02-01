@@ -17,13 +17,11 @@
     - name: Task 4 execution 
       debug: 
         msg: "This is my fourth task" 
+
 - name: Play 2
   hosts: localhost
   gather_facts: no
   tasks:
-    - name: Task 1 execution 
-      debug: 
-        msg: "This is my first task" 
 
     - name: Task 2 execution 
       debug: 
@@ -31,6 +29,3 @@
     
     - fail: 
        msg: "Sad" 
-
-    - name: Task 4 execution 
-      debug: 
