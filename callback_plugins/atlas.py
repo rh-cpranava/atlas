@@ -26,7 +26,7 @@ class CallbackModule(CallbackBase):
     CALLBACK_TYPE = 'aggregate'
     CALLBACK_NAME = 'atlas'
     def __init__(self, display=None):
-         """selective.py callback plugin."""
+         """atlas.py callback plugin."""
          super(CallbackModule, self).__init__(display)
          self.total_tasks = 0
          self.run_tasks = 0
