@@ -30,19 +30,25 @@ class CallbackModule(CallbackBase):
          super(CallbackModule, self).__init__(display)
          self.total_tasks = 0
          self.run_tasks = 0
+         self.play_dict = []
 
     def v2_playbook_on_play_start(self, play):
         self._play = play
-        self.total_tasks += len(self._play.get_tasks()[0])
+
+    def v2_playbook_on_start(self, playbook):
+        self.plays = playbook.get_plays()
 
     def v2_playbook_on_task_start(self, task, **kwargs):
         """Run when a task starts."""
         self.run_tasks += 1
 
     def v2_playbook_on_stats(self, stats):
-        self._display.display('*** Atlas Results ***')
+        self._display.display('************** Atlas Results **************', color='yellow')
+        self.total_tasks = sum([ len(i.get_tasks()[0]) for i in self.plays])
+        self.display_stats = self.run_tasks
         if self.total_tasks > 0:
-            coverage = self.run_tasks * 100.0 / self.total_tasks
+            self.coverage = self.run_tasks * 100.0 / self.total_tasks
         else:
-            coverage = 0.0
-        self._display.display('Coverage  : %.0f%% (%d of %d tasks are tested)' % (coverage, self.run_tasks, self.total_tasks))
+            self.coverage = 0.0
+        self._display.display('Total Coverage  : %.0f%% (%d of %d tasks are tested)' % (self.coverage, self.run_tasks, self.total_tasks), color='yellow')
+        self._display.display('************** Atlas End ******************', color='yellow')
